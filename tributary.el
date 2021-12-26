@@ -13,6 +13,7 @@
   (setq-local tributary--title nil)
   (setq-local tributary--space-key nil)
 
+  (define-key tributary-mode-map (kbd "C-c C-c") 'tributary-push)
   )
 
 
@@ -52,7 +53,9 @@
     (setq tributary--id .id)
     (setq tributary--version-number (1+ .version.number))
     (setq tributary--title .title)
-    (setq tributary--space-key .space.key)))
+    (setq tributary--space-key .space.key)
+    (setq header-line-format (format "%s [%s]" tributary--title tributary--version-number))
+    ))
 
 
 (defun tributary-push ()
