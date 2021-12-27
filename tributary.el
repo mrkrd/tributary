@@ -43,8 +43,11 @@
     (switch-to-buffer (format "*tributary*%s*" .id))
     (tributary-mode)
     (tributary--setup-local-vars data)
+    (insert "<confluence>\n")
     (insert .body.storage.value)
-    (sgml-pretty-print (point-min) (point-max))
+    (insert "\n</confluence>\n")
+    (tributary--set-schema)
+    ;; (sgml-pretty-print (point-min) (point-max))
     )
   )
 
@@ -56,6 +59,11 @@
     (setq tributary--space-key .space.key)
     (setq header-line-format (format "%s [%s]" tributary--title tributary--version-number))
     ))
+
+
+(defun tributary--set-schema ()
+  (let ((dir (file-name-directory (locate-library "tributary"))))
+    (rng-set-schema-file (concat dir "confluence.rnc"))))
 
 
 (defun tributary-push ()

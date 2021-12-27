@@ -1,0 +1,19 @@
+# Reference
+# https://confluence.atlassian.com/doc/confluence-storage-format-790796544.html
+
+p = element p { text }
+
+h1 = element h1 { text }
+h2 = element h2 { text }
+h3 = element h3 { text }
+h4 = element h4 { text }
+h5 = element h5 { text }
+h6 = element h6 { text }
+headings = h1 | h2 | h3 | h4 | h5 | h6
+
+
+block = headings | p
+
+confluence = element confluence { block+ }
+
+start = confluence
