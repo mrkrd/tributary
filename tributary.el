@@ -71,10 +71,16 @@
   (let-alist data
     (setq tributary--id .id)
     (setq tributary--version-number (1+ .version.number))
-    (setq tributary--title .title)
     (setq tributary--space-key .space.key)
-    (setq header-line-format (format "%s [%s]" tributary--title tributary--version-number))
+    (tributary-set-title .title)
     ))
+
+
+(defun tributary-set-title (title)
+  (interactive "sNew Title: ")
+  (setq tributary--title title)
+  (setq header-line-format (format "%s [%s]" tributary--title tributary--version-number))
+  )
 
 
 (defun tributary--set-schema ()
