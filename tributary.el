@@ -19,7 +19,16 @@
 
 (defun tributary-pull-id (id)
   (interactive "sPage ID: ")
-  (tributary--request-id id))
+  (let* ((buf-name (tributary--buffer-name id))
+         (prompt (format "Buffer %s already exists, kill first?" buf-name))
+         (buf (get-buffer buf-name)))
+    (if buf
+        (when (yes-or-no-p prompt)
+          (progn
+            (kill-buffer buf)
+            (tributary--request-id id)))
+      (tributary--request-id id)
+      )))
 
 
 ;; (tributary-pull-id "1704722479")
@@ -38,9 +47,13 @@
                     ))))))
 
 
-(defun tributary--setup-edit-buffer (data)
+(defun tributary--buffer-name (id)
+  (format "*tributary*%s*" id))
+
+
+(defun tributary--setup-current-buffer (data)
   (let-alist data
-    (switch-to-buffer (format "*tributary*%s*" .id))
+    (switch-to-buffer (tributary--buffer-name .id))
     (tributary-mode)
     (tributary--setup-local-vars data)
     (insert "<confluence>\n")
