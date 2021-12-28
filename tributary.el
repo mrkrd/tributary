@@ -43,8 +43,11 @@
       :success (cl-function
                 (lambda (&key data &allow-other-keys)
                   (when data
-                    (tributary--setup-edit-buffer data)
-                    ))))))
+                    (tributary--setup-edit-buffer data))))
+      :error (cl-function
+              (lambda (&rest args &key error-thrown &allow-other-keys)
+                (message "Got error: %S" error-thrown)))
+      )))
 
 
 (defun tributary--buffer-name (id)
