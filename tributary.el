@@ -73,6 +73,7 @@
     (request url
       :auth "basic"
       :type "PUT"
+      :sync t
       :data (json-encode `((id . ,tributary--id)
                            (type . "page")
                            (title . ,tributary--title)
