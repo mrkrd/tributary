@@ -43,7 +43,7 @@
       :success (cl-function
                 (lambda (&key data &allow-other-keys)
                   (when data
-                    (tributary--setup-edit-buffer data))))
+                    (tributary--setup-current-buffer data))))
       :error (cl-function
               (lambda (&rest args &key error-thrown &allow-other-keys)
                 (message "Got error: %S" error-thrown)))
@@ -59,10 +59,11 @@
     (switch-to-buffer (tributary--buffer-name .id))
     (tributary-mode)
     (tributary--setup-local-vars data)
-    (insert "<confluence>\n")
+    (insert "<confluence>")
     (insert .body.storage.value)
     (insert "\n</confluence>\n")
     (tributary--set-schema)
+    (goto-char (point-min))
     ;; (sgml-pretty-print (point-min) (point-max))
     )
   )
@@ -77,7 +78,7 @@
 
 
 (defun tributary-set-title (title)
-  (interactive "sNew Title: ")
+  (interactive (list (read-string "New Title: " tributary--title)))
   (setq tributary--title title)
   (setq header-line-format (format "%s [%s]" tributary--title tributary--version-number))
   )
