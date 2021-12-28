@@ -20,7 +20,7 @@
 (defun tributary-pull-id (id)
   (interactive "sPage ID: ")
   (let* ((buf-name (tributary--buffer-name id))
-         (prompt (format "Buffer %s already exists, kill first?" buf-name))
+         (prompt (format "Buffer %s already exists, overwrite?" buf-name))
          (buf (get-buffer buf-name)))
     (if buf
         (when (yes-or-no-p prompt)
