@@ -1,4 +1,4 @@
-* tributary
+* tributary.el
 
 GNU/Emacs major mode to edit Atlassian Confluence wiki pages.
 
