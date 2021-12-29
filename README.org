@@ -31,7 +31,7 @@ it anyways as an MVP.
 
 4. Edit your page in [[https://confluence.atlassian.com/doc/confluence-storage-format-790796544.html][Confluence Storage Format]].
 
-5. Push by typing =C-c C-c=
+5. Push by typing =C-c C-c=.
 
 
 ** License
