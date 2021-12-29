@@ -9,7 +9,7 @@ IMPORTANT: This software is in *alpha* quality!  I decided to release
 it anyways as an MVP.
 
 
-** Configuration
+** How to use
 
 1. Set =tributary-api-url=, e.g.,
 
@@ -32,6 +32,13 @@ it anyways as an MVP.
 4. Edit your page in [[https://confluence.atlassian.com/doc/confluence-storage-format-790796544.html][Confluence Storage Format]].
 
 5. Push by typing =C-c C-c=.
+
+
+** Related Software
+
+- https://sourceforge.net/projects/confluence-el/
+- https://github.com/aspiers/orgmode/blob/master/contrib/lisp/ox-confluence.el
+
 
 
 ** License
