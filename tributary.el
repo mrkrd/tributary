@@ -1,3 +1,22 @@
+;;; tributary.el --- Edit Confluence wiki pages in Emacs  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2021 Marek Rudnicki
+
+
+;; Author: Marek Rudnicki <mrkrd@posteo.de>
+
+;; Version: 1
+
+;; URL: https://github.com/mrkrd/tributary
+
+;; Package-Requires: (request)
+
+;; This file is not part of GNU Emacs.
+
+
+;;; Code:
+
+
 (require 'request)
 
 
@@ -119,3 +138,6 @@
 
 
 (provide 'tributary)
+
+
+;;; tributary.el ends here
