@@ -9,7 +9,7 @@ IMPORTANT: This software is in *alpha* quality!  I decided to release
 it anyways as an MVP.
 
 
-** How to use
+** How to Use
 
 1. Set =tributary-api-url=, e.g.,
 
@@ -43,4 +43,5 @@ it anyways as an MVP.
 
 ** License
 
-- GPLv3
+The project is licensed under the GNU General Public License v3 or
+later (GPLv3+).
