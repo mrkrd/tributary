@@ -22,7 +22,7 @@ it anyways as an MVP.
    - Create an API token for your Confluence account.
 
    - Make this token available to =auth-source.el= (this is what
-     =request.el=/=tributary.el= uses for authentication).
+     =request.el= / =tributary.el= use for authentication).
 
 3. Pull a page.
 
