@@ -1,4 +1,40 @@
-#+TITLE: tributary
-#+AUTHOR: Marek Rudnicki
-
 * tributary
+
+GNU/Emacs major mode to edit Atlassian Confluence wiki pages.
+
+=tributary.el= can pull a wiki page via Confluence REST API, edit it
+in as XML file, and update remote page.
+
+IMPORTANT: This software is in *alpha* quality!  I decided to release
+it anyways as an MVP.
+
+
+** Configuration
+
+1. Set =tributary-api-url=, e.g.,
+
+   #+begin_src elisp
+   (setq tributary-api-url "https://example.com/wiki/rest/api/content/")
+   #+end_src
+
+2. Configure authentication.
+
+   - Create an API token for your Confluence account.
+
+   - Make this token available to =auth-source.el= (this is what
+     =request.el=/=tributary.el= uses for authentication).
+
+3. Pull a page.
+
+   - =M-x tributary-pull-id=
+   - Input numerical ID of the page.
+
+
+4. Edit your page in [[https://confluence.atlassian.com/doc/confluence-storage-format-790796544.html][Confluence Storage Format]].
+
+5. Push by typing =C-c C-c=
+
+
+** License
+
+- GPLv3
