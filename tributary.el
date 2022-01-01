@@ -33,6 +33,8 @@
   (setq-local tributary--space-key nil)
 
   (define-key tributary-mode-map (kbd "C-c C-c") 'tributary-push)
+  (define-key tributary-mode-map (kbd "C-c C-p") 'tributary-pretty-print-buffer)
+  (define-key tributary-mode-map (kbd "C-c C-k") 'tributary-kill-buffer)
   )
 
 
@@ -135,6 +137,25 @@
                 (let-alist data
                   (message "ERROR %s: %s" .statusCode .message))))
       )))
+
+
+(defun tributary-pretty-print-buffer ()
+  (interactive)
+  (call-process-region
+   (point-min)
+   (point-max)
+   "tidy"
+   t                                    ; delete
+   t                                    ; destination
+   t                                    ; display
+   "-xml" "-indent" "-quiet"))
+
+
+(defun tributary-kill-buffer ()
+  (interactive)
+  (when (y-or-n-p "Kill buffer? ")
+    (kill-buffer))
+  )
 
 
 (provide 'tributary)
