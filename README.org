@@ -38,11 +38,11 @@ it anyways as an MVP.
 5. Push by typing =C-c C-c=.
 
 
-** Related Software
+** References
 
 - https://sourceforge.net/projects/confluence-el/
 - https://github.com/aspiers/orgmode/blob/master/contrib/lisp/ox-confluence.el
-
+- https://teddit.net/r/emacs/comments/7pytxd/how_to_deal_with_confluence/
 
 
 ** License
