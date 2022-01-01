@@ -4,14 +4,16 @@
 
 
 ;; Author: Marek Rudnicki <mrkrd@posteo.de>
-
-;; Version: 1
-
+;; Version: 2
 ;; URL: https://github.com/mrkrd/tributary
-
 ;; Package-Requires: (request)
 
-;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+
+;; This package provides a major mode to pull Confluence wiki pages
+;; via REST API, edit them as XML files, and push changes back to the
+;; server.
 
 
 ;;; Code:
@@ -53,6 +55,20 @@
 
 
 ;; (tributary-pull-id "1704722479")
+
+
+
+(defun tributary-pull-url (url)
+  (interactive "sPage URL: ")
+  (let* ((parsed-url (url-generic-parse-url url))
+         (filename (url-filename parsed-url))
+         (_ (string-match (rx "/wiki/spaces/" (one-or-more alnum) "/pages/" (group (one-or-more digit)) "/" (zero-or-more any))
+                        filename))
+         (id (match-string 1 filename))
+         (_ (setf (url-filename parsed-url) "/wiki/rest/api/content/"))
+         (api-url (url-recreate-url parsed-url)))
+  (tributary-pull-id id)))
+
 
 
 (defun tributary--request-id (id)
