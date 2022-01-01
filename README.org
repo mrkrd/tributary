@@ -1,6 +1,6 @@
 * tributary.el
 
-GNU/Emacs major mode to edit Atlassian Confluence wiki pages.
+GNU Emacs major mode to edit Atlassian Confluence wiki pages.
 
 =tributary.el= can pull a wiki page via Confluence REST API, edit it
 in as XML file, and update remote page.
