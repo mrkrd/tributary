@@ -164,7 +164,11 @@
    t                                    ; delete
    t                                    ; destination
    t                                    ; display
-   "-xml" "-indent" "-quiet"))
+   "--input-xml" "yes"
+   "--output-xml" "yes"
+   "--indent" "yes"
+   "--quiet" "yes"
+   "--wrap" "0"))
 
 
 (defun tributary-kill-buffer ()
